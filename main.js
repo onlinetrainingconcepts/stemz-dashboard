@@ -1,24 +1,32 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const headerText = document.querySelector('.dashboard__header--text');
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+console.log(headerText);
 
-setupCounter(document.querySelector('#counter'))
+const navList = document.querySelectorAll('.dashboard__nav--button');
+// navList.forEach((nav) => {
+//   console.log(nav.innerHTML)
+// })
+
+const tabContent = document.querySelectorAll('.tabcontent');
+
+// initializes the default view of the dashboard
+navList[0].classList.add('active');
+for (let i = 1; i < tabContent.length; i++) {
+	tabContent[i].style.display = 'none';
+}
+
+function openTab(e, tab) {
+	//   for(let i = 0; i < tabContent.length; i++) {
+	//   tabContent[i].style.display = 'none'
+	//  }
+	tabContent.forEach((div) => {
+		div.style.display = 'none';
+	});
+	navList.forEach((nav) => {
+		nav.classList.remove('active');
+	});
+
+	document.getElementById(tab).style.display = 'block';
+	e.currentTarget.classList.add('active');
+	headerText.innerText = e.currentTarget.innerText;
+}

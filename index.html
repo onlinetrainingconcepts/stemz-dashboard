@@ -1,13 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="container">
+				<div class="dashboard">
+					<div class="dashboard__panel">
+						<div class="dashboard__panel--img">
+							<div class="dashboard__panel--user-img"></div>
+							<p>Hi, Buyer Name!</p>
+						</div>
+						<nav class="dashboard__nav">
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'shop')"
+							>
+								Shop
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'account')"
+							>
+								Account Details
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'payment')"
+							>
+								Saved Payment Method
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'delivery')"
+							>
+								Delivery &amp; Pickup Preferences
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'orders')"
+							>
+								Order History
+							</button>
+						</nav>
+						<button class="dashboard__panel--logout">log out</button>
+					</div>
+					<div class="dashboard__header active">
+						<p class="dashboard__header--text">Shop</p>
+					</div>
+					<div class="dashboard__content">
+						<div id="shop" class="tabcontent">Shop</div>
+						<div id="account" class="tabcontent">Account Details</div>
+						<div id="payment" class="tabcontent">Payment Methods</div>
+						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
+						<div id="orders" class="tabcontent">Order History</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <script type="module" src="/main.js"></script> -->
+		<script src="/main.js"></script>
+	</body>
 </html>
