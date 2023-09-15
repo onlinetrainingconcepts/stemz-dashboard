@@ -1,32 +1,34 @@
+// variables
+const tabButtons = document.querySelectorAll('.dashboard__nav--button');
 const headerText = document.querySelector('.dashboard__header--text');
-
-console.log(headerText);
-
-const navList = document.querySelectorAll('.dashboard__nav--button');
-// navList.forEach((nav) => {
-//   console.log(nav.innerHTML)
-// })
-
 const tabContent = document.querySelectorAll('.tabcontent');
 
-// initializes the default view of the dashboard
-navList[0].classList.add('active');
-for (let i = 1; i < tabContent.length; i++) {
-	tabContent[i].style.display = 'none';
+function initializeDefaultView() {
+	// ensures the first tab is actie when page loads
+	tabButtons[0].classList.add('active');
+	// hides all the tab content sections except the first one
+	tabContent.forEach((tab, index) => {
+		if (index > 0) {
+			tab.style.display = 'none';
+		}
+	});
 }
 
+initializeDefaultView();
+
 function openTab(e, tab) {
-	//   for(let i = 0; i < tabContent.length; i++) {
-	//   tabContent[i].style.display = 'none'
-	//  }
+	// upon click, hides all content
 	tabContent.forEach((div) => {
 		div.style.display = 'none';
 	});
-	navList.forEach((nav) => {
+	// upon click, removes active classes of tab buttons
+	tabButtons.forEach((nav) => {
 		nav.classList.remove('active');
 	});
-
+	// shows current content div
 	document.getElementById(tab).style.display = 'block';
+	// adds active class to current tab button
 	e.currentTarget.classList.add('active');
+	// changes header text
 	headerText.innerText = e.currentTarget.innerText;
 }
