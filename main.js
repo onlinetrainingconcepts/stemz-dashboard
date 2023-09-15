@@ -1,24 +1,34 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+// variables
+const tabButtons = document.querySelectorAll('.dashboard__nav--button');
+const headerText = document.querySelector('.dashboard__header--text');
+const tabContent = document.querySelectorAll('.tabcontent');
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+function initializeDefaultView() {
+	// ensures the first tab is actie when page loads
+	tabButtons[0].classList.add('active');
+	// hides all the tab content sections except the first one
+	tabContent.forEach((tab, index) => {
+		if (index > 0) {
+			tab.style.display = 'none';
+		}
+	});
+}
 
-setupCounter(document.querySelector('#counter'))
+initializeDefaultView();
+
+function openTab(e, tab) {
+	// upon click, hides all content
+	tabContent.forEach((div) => {
+		div.style.display = 'none';
+	});
+	// upon click, removes active classes of tab buttons
+	tabButtons.forEach((nav) => {
+		nav.classList.remove('active');
+	});
+	// shows current content div
+	document.getElementById(tab).style.display = 'block';
+	// adds active class to current tab button
+	e.currentTarget.classList.add('active');
+	// changes header text
+	headerText.innerText = e.currentTarget.innerText;
+}
