@@ -66,6 +66,11 @@ body {
 	cursor: pointer;
 }
 
+.dashboard__panel--logout:hover {
+	border-color: rgba(154, 63, 68, 1);
+	color: rgba(154, 63, 68, 1);
+}
+
 .dashboard__nav {
 	display: flex;
 	flex-direction: column;
@@ -77,16 +82,34 @@ body {
 	border: none;
 	display: flex;
 	align-items: center;
-	padding-left: 15px;
+	padding-left: 19px;
 	cursor: pointer;
+	position: relative;
 }
 
+/* active button styles */
 .dashboard__nav--button.active {
 	background-color: #bfdede;
 }
 
-.dashboard__nav--button:hover {
-	background-color: #daeded;
+.dashboard__nav--button.active:after {
+	content: '';
+	width: 6px;
+	height: 100%;
+	background-color: rgba(0, 125, 122, 1);
+	position: absolute;
+	left: 0;
+}
+
+/* hover button styles */
+/* applies left border to nav button */
+.dashboard__nav--button:hover:not(.active):after {
+	content: '';
+	width: 6px;
+	height: 100%;
+	background-color: #f1d7cc;
+	position: absolute;
+	left: 0;
 }
 
 /* dashboard header div */
