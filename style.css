@@ -10,7 +10,8 @@ body {
 /* || main dashboard */
 
 .dashboard {
-	width: 1200px;
+	width: 100%;
+	max-width: 1200px;
 	height: 680px;
 	border: 1px solid #64b0af;
 	display: grid;
@@ -81,6 +82,7 @@ body {
 	height: 46px;
 	border: none;
 	display: flex;
+	gap: 15px;
 	align-items: center;
 	padding-left: 19px;
 	cursor: pointer;
@@ -144,4 +146,35 @@ body {
 .dashboard__content {
 	grid-area: main;
 	background-color: #fff;
+}
+
+/* || media queiries */
+
+@media (max-width: 1024px) {
+	.dashboard {
+		grid-template-columns: 50px 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas: 'nav-panel main';
+	}
+
+	.dashboard__panel--img {
+		display: none;
+	}
+
+	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
+	.dashboard__nav--button-text {
+		display: none;
+	}
+
+	.dashboard__nav--button.active:after {
+		border: none;
+	}
+
+	.dashboard__panel--logout {
+		display: none;
+	}
+
+	.dashboard__header {
+		display: none;
+	}
 }
