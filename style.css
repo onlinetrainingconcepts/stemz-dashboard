@@ -92,13 +92,26 @@ body {
 	background-color: #bfdede;
 }
 
-.dashboard__nav--button.active:after {
+.dashboard__nav--button.active:before {
 	content: '';
 	width: 6px;
 	height: 100%;
 	background-color: rgba(0, 125, 122, 1);
 	position: absolute;
 	left: 0;
+}
+
+/* active arrow */
+.dashboard__nav--button.active:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	border-width: 14px;
+	border-style: solid;
+	border-right-color: #fff;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
 }
 
 /* hover button styles */
