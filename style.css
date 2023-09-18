@@ -15,11 +15,14 @@ body {
 	height: 680px;
 	border: 1px solid #64b0af;
 	display: grid;
-	grid-template-columns: 347px 1fr;
+	grid-template-columns: 50px 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: 'nav-panel main';
+	/* grid-template-columns: 347px 1fr;
 	grid-template-rows: 70px 1fr;
 	grid-template-areas:
 		'nav-panel header'
-		'nav-panel main';
+		'nav-panel main'; */
 }
 
 /* || dashboard side panel */
@@ -41,10 +44,11 @@ body {
 .dashboard__panel--img {
 	width: 100%;
 	height: 250px;
-	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	/* will change with media query */
+	display: none;
 }
 
 .dashboard__panel--user-img {
@@ -65,6 +69,8 @@ body {
 	border-radius: 4px;
 	text-transform: uppercase;
 	cursor: pointer;
+	/* will change with media query */
+	display: none;
 }
 
 .dashboard__panel--logout:hover {
@@ -87,6 +93,10 @@ body {
 	padding-left: 19px;
 	cursor: pointer;
 	position: relative;
+}
+
+.dashboard__nav--button-text {
+	display: none;
 }
 
 /* active button styles */
@@ -114,6 +124,8 @@ body {
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	border-top-color: transparent;
+	/* will change with media query */
+	display: none;
 }
 
 /* hover button styles */
@@ -135,6 +147,7 @@ body {
 	display: flex;
 	align-items: center;
 	border-left: 6px solid rgba(0, 125, 122, 1);
+	display: none;
 }
 
 .dashboard__header--text {
@@ -150,31 +163,34 @@ body {
 
 /* || media queiries */
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
 	.dashboard {
-		grid-template-columns: 50px 1fr;
-		grid-template-rows: 1fr;
-		grid-template-areas: 'nav-panel main';
+		grid-template-columns: 347px 1fr;
+		grid-template-rows: 70px 1fr;
+		grid-template-areas:
+			'nav-panel header'
+			'nav-panel main';
 	}
 
 	.dashboard__panel--img {
-		display: none;
+		display: flex;
 	}
 
 	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
 	.dashboard__nav--button-text {
-		display: none;
+		display: block;
 	}
 
+	/* active arrow */
 	.dashboard__nav--button.active:after {
-		border: none;
+		display: block;
 	}
 
 	.dashboard__panel--logout {
-		display: none;
+		display: block;
 	}
 
 	.dashboard__header {
-		display: none;
+		display: flex;
 	}
 }
