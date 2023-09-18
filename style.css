@@ -10,15 +10,19 @@ body {
 /* || main dashboard */
 
 .dashboard {
-	width: 1200px;
+	width: 100%;
+	max-width: 1200px;
 	height: 680px;
 	border: 1px solid #64b0af;
 	display: grid;
-	grid-template-columns: 347px 1fr;
+	grid-template-columns: 50px 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: 'nav-panel main';
+	/* grid-template-columns: 347px 1fr;
 	grid-template-rows: 70px 1fr;
 	grid-template-areas:
 		'nav-panel header'
-		'nav-panel main';
+		'nav-panel main'; */
 }
 
 /* || dashboard side panel */
@@ -40,10 +44,11 @@ body {
 .dashboard__panel--img {
 	width: 100%;
 	height: 250px;
-	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	/* will change with media query */
+	display: none;
 }
 
 .dashboard__panel--user-img {
@@ -64,6 +69,8 @@ body {
 	border-radius: 4px;
 	text-transform: uppercase;
 	cursor: pointer;
+	/* will change with media query */
+	display: none;
 }
 
 .dashboard__panel--logout:hover {
@@ -81,10 +88,15 @@ body {
 	height: 46px;
 	border: none;
 	display: flex;
+	gap: 15px;
 	align-items: center;
 	padding-left: 19px;
 	cursor: pointer;
 	position: relative;
+}
+
+.dashboard__nav--button-text {
+	display: none;
 }
 
 /* active button styles */
@@ -92,13 +104,28 @@ body {
 	background-color: #bfdede;
 }
 
-.dashboard__nav--button.active:after {
+.dashboard__nav--button.active:before {
 	content: '';
 	width: 6px;
 	height: 100%;
 	background-color: rgba(0, 125, 122, 1);
 	position: absolute;
 	left: 0;
+}
+
+/* active arrow */
+.dashboard__nav--button.active:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	border-width: 14px;
+	border-style: solid;
+	border-right-color: #fff;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	border-top-color: transparent;
+	/* will change with media query */
+	display: none;
 }
 
 /* hover button styles */
@@ -120,6 +147,7 @@ body {
 	display: flex;
 	align-items: center;
 	border-left: 6px solid rgba(0, 125, 122, 1);
+	display: none;
 }
 
 .dashboard__header--text {
@@ -131,4 +159,38 @@ body {
 .dashboard__content {
 	grid-area: main;
 	background-color: #fff;
+}
+
+/* || media queiries */
+
+@media (min-width: 1024px) {
+	.dashboard {
+		grid-template-columns: 347px 1fr;
+		grid-template-rows: 70px 1fr;
+		grid-template-areas:
+			'nav-panel header'
+			'nav-panel main';
+	}
+
+	.dashboard__panel--img {
+		display: flex;
+	}
+
+	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
+	.dashboard__nav--button-text {
+		display: block;
+	}
+
+	/* active arrow */
+	.dashboard__nav--button.active:after {
+		display: block;
+	}
+
+	.dashboard__panel--logout {
+		display: block;
+	}
+
+	.dashboard__header {
+		display: flex;
+	}
 }
