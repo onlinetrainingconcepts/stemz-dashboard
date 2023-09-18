@@ -18,11 +18,6 @@ body {
 	grid-template-columns: 50px 1fr;
 	grid-template-rows: 1fr;
 	grid-template-areas: 'nav-panel main';
-	/* grid-template-columns: 347px 1fr;
-	grid-template-rows: 70px 1fr;
-	grid-template-areas:
-		'nav-panel header'
-		'nav-panel main'; */
 }
 
 /* || dashboard side panel */
@@ -74,8 +69,18 @@ body {
 }
 
 .dashboard__panel--logout:hover {
-	border-color: rgba(154, 63, 68, 1);
+	background-color: #fff;
 	color: rgba(154, 63, 68, 1);
+	border-color: rgba(154, 63, 68, 1);
+}
+
+.dashboard__panel--logout:focus-visible {
+	background-color: #fff;
+	color: rgba(154, 63, 68, 1);
+	border-color: rgba(154, 63, 68, 1);
+	outline: 2px solid #007d7a;
+	outline-offset: 2px;
+	z-index: 50;
 }
 
 .dashboard__nav {
@@ -85,6 +90,7 @@ body {
 
 .dashboard__nav--button {
 	background-color: #fbf5f2;
+	color: #233235;
 	height: 46px;
 	border: none;
 	display: flex;
@@ -95,15 +101,33 @@ body {
 	position: relative;
 }
 
-.dashboard__nav--button-text {
-	display: none;
+/* hover button styles */
+.dashboard__nav--button:hover:not(.active),
+.dashboard__nav--button:focus:not(.active) {
+	color: #233235;
+	background-color: rgba(251, 245, 242, 1);
+}
+
+.dashboard__nav--button.active:hover {
+	color: #233235;
+}
+
+.dashboard__nav--button:focus {
+	outline: none;
+}
+
+.dashboard__nav--button:focus-visible {
+	outline: 2px solid #007d7a;
+	z-index: 100;
 }
 
 /* active button styles */
 .dashboard__nav--button.active {
 	background-color: #bfdede;
+	color: #233235;
 }
 
+/* active border */
 .dashboard__nav--button.active:before {
 	content: '';
 	width: 6px;
@@ -124,12 +148,12 @@ body {
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	border-top-color: transparent;
+	z-index: 100;
 	/* will change with media query */
 	display: none;
 }
 
-/* hover button styles */
-/* applies left border to nav button */
+/* applies left border to nav button on hover */
 .dashboard__nav--button:hover:not(.active):after {
 	content: '';
 	width: 6px;
@@ -137,6 +161,10 @@ body {
 	background-color: #f1d7cc;
 	position: absolute;
 	left: 0;
+}
+
+.dashboard__nav--button-text {
+	display: none;
 }
 
 /* dashboard header div */
