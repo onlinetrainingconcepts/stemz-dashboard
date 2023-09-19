@@ -38,7 +38,9 @@
 	text-align: left;
 	transition: background-color 0.2s ease-in-out;
 	display: flex;
+	gap: 10px;
 	justify-content: flex-start;
+	align-items: center;
 }
 
 .shop__btn:hover {
