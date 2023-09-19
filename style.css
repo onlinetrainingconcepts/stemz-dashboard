@@ -189,6 +189,12 @@ body {
 	background-color: #fff;
 }
 
+/* tabcontent */
+
+.tabcontent {
+	padding: 23px 15px;
+}
+
 /* || media queiries */
 
 @media (min-width: 1024px) {
@@ -220,5 +226,9 @@ body {
 
 	.dashboard__header {
 		display: flex;
+	}
+
+	.tabcontent {
+		padding: 23px 73px;
 	}
 }
