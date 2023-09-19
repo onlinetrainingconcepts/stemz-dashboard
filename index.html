@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Stemz Dashboard</title>
 		<link rel="stylesheet" href="/style.css" />
+		<link rel="stylesheet" href="/shop.css" />
 	</head>
 	<body>
 		<div id="app">
@@ -93,7 +94,32 @@
 						<p class="dashboard__header--text">Shop</p>
 					</div>
 					<div class="dashboard__content">
-						<div id="shop" class="tabcontent">Shop</div>
+						<div id="shop" class="shop tabcontent">
+							<div class="shop__container">
+								<div class="shop__category">
+									<h4 class="shop__label">Priority Advance Order</h4>
+									<button class="shop__btn">
+										Request New PAO by Ingredient
+									</button>
+									<button class="shop__btn">Request by Color Palette</button>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Live Field Inventory</h4>
+									<button class="shop__btn">Shop LFI Now for Receiving</button>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Weekly Standing Order</h4>
+									<button class="shop__btn">
+										Manage your Weekly Standing Order
+									</button>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Pending Orders</h4>
+									<button class="shop__btn">Review All Pending Orders</button>
+									<button class="shop__btn">Add On to Existing Order</button>
+								</div>
+							</div>
+						</div>
 						<div id="account" class="tabcontent">Account Details</div>
 						<div id="payment" class="tabcontent">Payment Methods</div>
 						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
