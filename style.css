@@ -7,6 +7,38 @@ body {
 	justify-content: center;
 }
 
+/* || buttons */
+
+.dashboard__button-primary {
+	padding: 12px 30px;
+	background-color: #de5a61;
+	color: #fff;
+	border: 1px solid #de5a61;
+	border-radius: 4px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.dashboard__button-primary:hover {
+	background-color: rgba(154, 63, 68, 1);
+	color: #fff;
+	border-color: rgba(154, 63, 68, 1);
+}
+
+.dashboard__button-secondary {
+	padding: 12px 30px;
+	background-color: #fff;
+	color: #de5a61;
+	border: 1px solid #de5a61;
+	border-radius: 4px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.dashboard__button-secondary:hover {
+	background-color: #de5a61;
+	color: #fff;
+	border-color: #de5a61;
+}
+
 /* || main dashboard */
 
 .dashboard {
@@ -60,22 +92,9 @@ body {
 .dashboard__panel--logout {
 	order: 2;
 	align-self: center;
-	padding: 12px 30px;
 	margin-bottom: 31px;
-	background-color: #fff;
-	color: #de5a61;
-	border: 1px solid #de5a61;
-	border-radius: 4px;
-	text-transform: uppercase;
-	cursor: pointer;
 	/* will change with media query */
 	display: none;
-}
-
-.dashboard__panel--logout:hover {
-	background-color: #fff;
-	color: rgba(154, 63, 68, 1);
-	border-color: rgba(154, 63, 68, 1);
 }
 
 .dashboard__panel--logout:focus-visible {
