@@ -6,14 +6,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Stemz Dashboard</title>
 		<link rel="stylesheet" href="/style.css" />
+		<link rel="stylesheet" href="/shop.css" />
 	</head>
 	<body>
 		<div id="app">
 			<div class="container">
 				<div class="dashboard">
 					<div class="dashboard__panel">
-						<div class="dashboard__panel--img">
-							<div class="dashboard__panel--user-img"></div>
+						<div class="dashboard__panel--user">
+							<img
+								src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+								alt=""
+								class="dashboard__panel--user-img"
+							/>
 							<p>Hi, Buyer Name!</p>
 						</div>
 						<nav class="dashboard__nav">
@@ -21,31 +26,70 @@
 								class="dashboard__nav--button"
 								onclick="openTab(event, 'shop')"
 							>
-								Shop
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Shop</span>
 							</button>
 							<button
 								class="dashboard__nav--button"
 								onclick="openTab(event, 'account')"
 							>
-								Account Details
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Account Details</span>
 							</button>
 							<button
 								class="dashboard__nav--button"
 								onclick="openTab(event, 'payment')"
 							>
-								Saved Payment Method
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text"
+									>Saved Payment Method</span
+								>
 							</button>
 							<button
 								class="dashboard__nav--button"
 								onclick="openTab(event, 'delivery')"
 							>
-								Delivery &amp; Pickup Preferences
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text"
+									>Delivery &amp; Pickup Preferences</span
+								>
 							</button>
 							<button
 								class="dashboard__nav--button"
 								onclick="openTab(event, 'orders')"
 							>
-								Order History
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Order History</span>
 							</button>
 						</nav>
 						<button class="dashboard__panel--logout">log out</button>
@@ -54,7 +98,71 @@
 						<p class="dashboard__header--text">Shop</p>
 					</div>
 					<div class="dashboard__content">
-						<div id="shop" class="tabcontent">Shop</div>
+						<div id="shop" class="tabcontent">
+							<div class="shop__container">
+								<div class="shop__category">
+									<h4 class="shop__label">Priority Advance Order</h4>
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Request New PAO by Ingredient
+									</a>
+
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Request by Color Palette</a
+									>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Live Field Inventory</h4>
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Shop LFI Now for Receiving</a
+									>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Weekly Standing Order</h4>
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Manage your Weekly Standing Order
+									</a>
+								</div>
+								<div class="shop__category">
+									<h4 class="shop__label">Pending Orders</h4>
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Review All Pending Orders</a
+									>
+									<a href="#" class="shop__btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Add On to Existing Order</a
+									>
+								</div>
+							</div>
+						</div>
 						<div id="account" class="tabcontent">Account Details</div>
 						<div id="payment" class="tabcontent">Payment Methods</div>
 						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
