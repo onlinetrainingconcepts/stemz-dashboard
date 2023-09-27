@@ -7,6 +7,7 @@
 		<title>Stemz Dashboard</title>
 		<link rel="stylesheet" href="/style.css" />
 		<link rel="stylesheet" href="/shop.css" />
+		<link rel="stylesheet" href="/order-history.css" />
 	</head>
 	<body>
 		<div id="app">
@@ -166,7 +167,67 @@
 						<div id="account" class="tabcontent">Account Details</div>
 						<div id="payment" class="tabcontent">Payment Methods</div>
 						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
-						<div id="orders" class="tabcontent">Order History</div>
+						<div id="orders" class="tabcontent">
+							<div class="order-history">
+								<table class="order-history__table">
+									<thead>
+										<tr>
+											<th>Order#</th>
+											<th>Order Placed</th>
+											<th>Order Total</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>12345678</td>
+											<td>July 18, 2023</td>
+											<td>$259.00</td>
+											<td>
+												<button
+													id="orderDetails"
+													name="orderDetails"
+													class="orderDetails"
+													value="'.$orderID.'"
+												>
+													Order Details
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>12345678</td>
+											<td>July 18, 2023</td>
+											<td>$259.00</td>
+											<td>
+												<button
+													id="orderDetails"
+													name="orderDetails"
+													class="orderDetails"
+													value="'.$orderID.'"
+												>
+													Order Details
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td>12345678</td>
+											<td>July 18, 2023</td>
+											<td>$259.00</td>
+											<td>
+												<button
+													id="orderDetails"
+													name="orderDetails"
+													class="orderDetails"
+													value="'.$orderID.'"
+												>
+													Order Details
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
