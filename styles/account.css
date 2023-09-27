@@ -1,23 +1,32 @@
+.account__form {
+	width: 100%;
+}
+
 .account__form form {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 156px 1fr;
+	grid-template-rows: repeat(8, 68px) 40px;
 	gap: 20px;
+}
+
+.account__form form div {
+	grid-column: 1 / -1;
+}
+
+.account__form form div:nth-child(1) {
+	grid-column: 1 / 2;
+}
+.account__form form div:nth-child(2) {
+	grid-column: 2 / -1;
+}
+.account__form form div:nth-child(3) {
+	grid-column: 2 / -1;
 }
 
 .account__label-input {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-}
-
-.account__label-input input:focus-visible {
-	outline: 2px solid #007d7a;
-	z-index: 100;
-}
-
-/* removal of lastpass div being automatically added which affected layout */
-.account__label-input > div[data-lastpass-icon-root] {
-	display: none;
 }
 
 .account__label-input label {
@@ -39,6 +48,30 @@
 	background-color: #fff;
 }
 
+.account__form input:focus-visible {
+	outline: 2px solid #007d7a;
+	z-index: 100;
+}
+
 .account__form button {
 	width: 250px;
+	/* height: 40px; */
+}
+
+/* profile pic div */
+.profile-pic {
+	width: 156px;
+	height: 156px;
+}
+
+.profile-pic input[type='file'] {
+	/* opacity: 0; */
+	width: 100%;
+	padding: 0;
+	border: none;
+}
+
+/* removal of lastpass div being automatically added which affected layout */
+.account__label-input > div[data-lastpass-icon-root] {
+	display: none;
 }
