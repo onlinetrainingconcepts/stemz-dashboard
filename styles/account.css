@@ -10,6 +10,11 @@
 	gap: 10px;
 }
 
+.account__label-input input:focus-visible {
+	outline: 2px solid #007d7a;
+	z-index: 100;
+}
+
 /* removal of lastpass div being automatically added which affected layout */
 .account__label-input > div[data-lastpass-icon-root] {
 	display: none;
