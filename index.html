@@ -7,6 +7,7 @@
 		<title>Stemz Dashboard</title>
 		<link rel="stylesheet" href="/style.css" />
 		<link rel="stylesheet" href="/shop.css" />
+		<link rel="stylesheet" href="/account.css" />
 		<link rel="stylesheet" href="/order-history.css" />
 	</head>
 	<body>
@@ -93,7 +94,11 @@
 								<span class="dashboard__nav--button-text">Order History</span>
 							</button>
 						</nav>
-						<button class="dashboard__panel--logout">log out</button>
+						<button
+							class="dashboard__button-secondary dashboard__panel--logout"
+						>
+							log out
+						</button>
 					</div>
 					<div class="dashboard__header active">
 						<p class="dashboard__header--text">Shop</p>
@@ -164,7 +169,93 @@
 								</div>
 							</div>
 						</div>
-						<div id="account" class="tabcontent">Account Details</div>
+						<div id="account" class="tabcontent">
+							<div class="account__container">
+								<div class="account__form">
+									<form action="POST">
+										<!-- Business Name -->
+										<div class="account__label-input">
+											<label for="account__business-name">Business Name</label>
+											<input
+												type="text"
+												id="account__business-name"
+												placeholder="Business Name"
+											/>
+										</div>
+										<!-- Contact Name -->
+										<div class="account__label-input">
+											<label for="account__contact-name">Contact Name</label>
+											<input
+												type="text"
+												id="account__contact-name"
+												placeholder="Contact Name"
+											/>
+										</div>
+										<!-- Email -->
+										<div class="account__label-input">
+											<label for="account__email">Email</label>
+											<input
+												type="email"
+												id="account__email"
+												placeholder="email@businessname.com"
+											/>
+										</div>
+										<!-- Physical Address -->
+										<div class="account__label-input">
+											<label for="account__physical-address"
+												>Physical Address</label
+											>
+											<input
+												type="text"
+												id="account__physical-address"
+												placeholder="Current Physical Address, 28801, NC"
+											/>
+										</div>
+										<!-- Mailing Address -->
+										<div class="account__label-input">
+											<label for="account__mailing-address"
+												>Mailing Address (if different)</label
+											>
+											<input
+												type="text"
+												id="account__mailing-address"
+												placeholder="Current Physical Address, 28801, NC"
+											/>
+										</div>
+										<!-- Phone -->
+										<div class="account__label-input">
+											<label for="account__phone">Phone</label>
+											<input
+												type="tel"
+												id="account__phone"
+												placeholder="(828) 456-0123"
+											/>
+										</div>
+										<!-- Cell Phone -->
+										<div class="account__label-input">
+											<label for="account__cell-phone">Cell Phone</label>
+											<input
+												type="tel"
+												id="account__cell-phone"
+												placeholder="(828) 456-0123"
+											/>
+										</div>
+										<!-- Website -->
+										<div class="account__label-input">
+											<label for="account__website">Website</label>
+											<input
+												type="text"
+												id="account__website"
+												placeholder="https://www.website.com"
+											/>
+										</div>
+										<button type="submit" class="dashboard__button-primary">
+											Submit
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
 						<div id="payment" class="tabcontent">Payment Methods</div>
 						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
 						<div id="orders" class="tabcontent">
