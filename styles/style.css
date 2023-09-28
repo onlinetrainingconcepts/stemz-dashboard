@@ -17,6 +17,7 @@ body {
 	border-radius: 4px;
 	text-transform: uppercase;
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 .dashboard__button-primary:hover {
 	background-color: rgba(154, 63, 68, 1);
@@ -32,6 +33,7 @@ body {
 	border-radius: 4px;
 	text-transform: uppercase;
 	cursor: pointer;
+	transition: all 0.2s ease-in-out;
 }
 .dashboard__button-secondary:hover {
 	background-color: #de5a61;
