@@ -108,6 +108,11 @@
 	cursor: pointer;
 }
 
+/* darkens photo when hover over parent */
+.profile-pic:hover .profile-pic__img img {
+	filter: brightness(0.5);
+}
+
 .profile-pic__text {
 	position: absolute;
 	top: 50%;
