@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Stemz Dashboard</title>
 		<link rel="stylesheet" href="styles/style.css" />
-		<link rel="stylesheet" href="styles/shop.css" />
+		<link rel="stylesheet" href="styles/dashboard-link-page.css" />
 		<link rel="stylesheet" href="styles/account.css" />
 		<link rel="stylesheet" href="styles/order-history.css" />
 		<script
@@ -16,6 +16,7 @@
 	</head>
 	<body>
 		<div id="app">
+			<!-- Buyer Dashboard -->
 			<div class="container">
 				<div class="dashboard">
 					<div class="dashboard__panel">
@@ -109,10 +110,12 @@
 					</div>
 					<div class="dashboard__content">
 						<div id="shop" class="tabcontent">
-							<div class="shop__container">
-								<div class="shop__category">
-									<h4 class="shop__label">Priority Advance Order</h4>
-									<a href="#" class="shop__btn"
+							<div class="dashboard-link__container">
+								<div class="dashboard-link__group">
+									<h4 class="dashboard-link__group-label">
+										Priority Advance Order
+									</h4>
+									<a href="#" class="dashboard-link__group-btn"
 										><img
 											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 											height="36"
@@ -121,7 +124,7 @@
 										/>Request New PAO by Ingredient
 									</a>
 
-									<a href="#" class="shop__btn"
+									<a href="#" class="dashboard-link__group-btn"
 										><img
 											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 											height="36"
@@ -336,6 +339,177 @@
 								</table>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+
+			<br />
+			<!-- Farmer Dashboard -->
+			<div class="container">
+				<div class="dashboard">
+					<div class="dashboard__panel">
+						<div class="dashboard__panel--user">
+							<img
+								src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+								alt=""
+								class="dashboard__panel--user-img"
+							/>
+							<p>Hi, Farmer Name!</p>
+						</div>
+						<nav class="dashboard__nav">
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'shop')"
+							>
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Sell</span>
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'account')"
+							>
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text"
+									>Product Drop Details</span
+								>
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'payment')"
+							>
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Account Details</span>
+							</button>
+							<button
+								class="dashboard__nav--button"
+								onclick="openTab(event, 'delivery')"
+							>
+								<img
+									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+									height="20"
+									width="20"
+									alt=""
+									class="dashboard__nav--icon"
+								/>
+								<span class="dashboard__nav--button-text">Resource Center</span>
+							</button>
+						</nav>
+						<button
+							class="dashboard__button-secondary dashboard__panel--logout"
+						>
+							log out
+						</button>
+					</div>
+					<div class="dashboard__header active">
+						<p class="dashboard__header--text">Sell</p>
+					</div>
+					<div class="dashboard__content">
+						<div id="sell" class="">
+							<div class="dashboard-link__container">
+								<div class="dashboard-link__group">
+									<h4 class="dashboard-link__group-label">
+										Current Sales Cycle
+									</h4>
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Manage Current Sales Cycle <br />
+										(LFI & CURRENT PAOS)
+									</a>
+
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Cut List</a
+									>
+
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Purchase Order</a
+									>
+								</div>
+								<div class="dashboard-link__group">
+									<h4 class="dashboard-link__group-label">Looking Ahead</h4>
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Claim Priority Advance Order</a
+									>
+
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>My Future Priority Advance Orders</a
+									>
+								</div>
+								<div class="dashboard-link__group">
+									<h4 class="dashboard-link__group-label">History</h4>
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Past Orders
+									</a>
+
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Sales Data
+									</a>
+
+									<a href="#" class="dashboard-link__group-btn"
+										><img
+											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
+											height="36"
+											width="36"
+											alt="icon"
+										/>Feedback
+									</a>
+								</div>
+							</div>
+						</div>
+						<!-- <div id="prod-drop" class="">Product Drop Details page</div>
+						<div id="account-farmer" class="">Account Details</div>
+						<div id="resource-center" class="">Resource Center</div> -->
 					</div>
 				</div>
 			</div>
