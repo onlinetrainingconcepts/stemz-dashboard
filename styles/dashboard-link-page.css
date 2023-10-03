@@ -1,0 +1,113 @@
+.dashboard-link__container {
+	display: grid;
+	grid-template-rows: auto;
+	gap: 20px;
+}
+
+.dashboard-link__group {
+	margin-top: 26px;
+	padding: 11px;
+	border: 1px solid rgba(222, 90, 97, 1);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.dashboard-link__group-label {
+	margin: 0;
+	color: #233235;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	text-transform: uppercase;
+	position: absolute;
+	top: -26px;
+	left: 0;
+}
+
+.dashboard-link__group-btn {
+	background-color: rgba(241, 215, 204, 1);
+	color: #233235;
+	border: none;
+	border-radius: 4px;
+	padding: 12px 22px;
+	font-size: 16px;
+	font-weight: 500;
+	text-align: left;
+	text-decoration: none;
+	transition: background-color 0.2s ease-in-out;
+	display: flex;
+	gap: 10px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.dashboard-link__group-btn:hover {
+	background-color: #ffc7af;
+	color: #233235;
+	outline: 1px solid rgba(222, 90, 97, 1);
+	outline-offset: -1px;
+}
+
+/* || media queries */
+
+@media (min-width: 1024px) {
+	/* positioning of shop-sell containers */
+	.dashboard-link__container {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	/* positioning of shop containers */
+	#shop .dashboard-link__container .dashboard-link__group:nth-of-type(1) {
+		grid-column: 1 / -1;
+	}
+	#shop .dashboard-link__container .dashboard-link__group:nth-of-type(4) {
+		grid-column: 1 / -1;
+	}
+
+	/* positioning of shop buttons within containers */
+	#shop .dashboard-link__container .dashboard-link__group:nth-of-type(1),
+	#shop .dashboard-link__container .dashboard-link__group:nth-of-type(4) {
+		flex-direction: row;
+	}
+
+	/* shop buttons */
+	#shop .dashboard-link__container .dashboard-link__group-btn {
+		flex: 1 1 50%;
+	}
+
+	/* sell page */
+
+	/* positioning of sell containers */
+	#sell .dashboard-link__group:nth-of-type(3) {
+		grid-column: 1 / -1;
+	}
+
+	/* positioning of sell buttons within containers */
+	#sell .dashboard-link__container .dashboard-link__group:nth-of-type(1) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	/* current sales cyle positioning */
+	#sell
+		.dashboard-link__container
+		.dashboard-link__group:nth-of-type(1)
+		.dashboard-link__group-btn:nth-of-type(1) {
+		grid-column: 1 / -1;
+	}
+
+	/* positioning of history buttons */
+	#sell .dashboard-link__container .dashboard-link__group:nth-of-type(3) {
+		flex-direction: row;
+	}
+
+	#sell
+		.dashboard-link__container
+		.dashboard-link__group:nth-of-type(3)
+		.dashboard-link__group-btn {
+		flex: 1 1 33%;
+	}
+}

@@ -217,7 +217,8 @@ body {
 
 /* tabcontent */
 
-.tabcontent {
+.tabcontent,
+#sell .shop__container {
 	padding: 23px 15px;
 }
 
