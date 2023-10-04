@@ -127,6 +127,9 @@ body {
 	padding-left: 19px;
 	cursor: pointer;
 	position: relative;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
 }
 
 /* hover button styles */
