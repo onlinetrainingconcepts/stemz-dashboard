@@ -217,7 +217,8 @@ body {
 
 /* tabcontent */
 
-.tabcontent {
+.tabcontent,
+#sell {
 	padding: 23px 15px;
 }
 
@@ -254,7 +255,8 @@ body {
 		display: flex;
 	}
 
-	.tabcontent {
+	.tabcontent,
+	#sell {
 		padding: 23px 73px;
 	}
 }
