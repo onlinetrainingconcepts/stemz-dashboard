@@ -10,7 +10,91 @@ body {
 	justify-content: center;
 }
 
-/* || buttons */
+/* ||| initial positioning */
+
+/* || main dashboard */
+
+.dashboard {
+	width: 100%;
+	max-width: 1200px;
+	height: 680px;
+	border: 1px solid #64b0af;
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: 'nav-panel main';
+}
+
+/* || dashboard side panel */
+
+.dashboard__panel {
+	grid-area: nav-panel;
+	background-color: #fbf5f2;
+	display: flex;
+	flex-direction: column;
+}
+
+/* || dashboard header div */
+
+.dashboard__header {
+	grid-area: header;
+	display: none;
+}
+
+.dashboard__header--text {
+	margin: 0 0 0 20px;
+}
+
+/* ||| dashboard panel */
+
+.dashboard__panel--user {
+	/* will change with media query */
+	display: none;
+}
+
+.dashboard__panel--user-img {
+	height: 156px;
+	width: 156px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.dashboard__panel--user p {
+	margin: 0;
+}
+
+/* arranges sign out button to be at the bottom of the panel */
+.dashboard__panel:before {
+	content: '';
+	flex: 1 1 auto;
+	order: 1;
+}
+
+/* || dashboard nav */
+
+.dashboard__nav {
+	display: flex;
+	flex-direction: column;
+}
+
+/* ||| dashboard content div */
+
+.dashboard__content {
+	grid-area: main;
+	background-color: #fff;
+	overflow-y: auto;
+}
+
+/* || tabcontent */
+
+.tabcontent,
+#sell {
+	padding: 23px 15px;
+}
+
+/* ||| buttons & interactions */
+
+/* || primary & secondary  */
 
 .dashboard__button-primary {
 	padding: 12px 30px;
@@ -44,77 +128,7 @@ body {
 	border-color: #de5a61;
 }
 
-/* || main dashboard */
-
-.dashboard {
-	width: 100%;
-	max-width: 1200px;
-	height: 680px;
-	border: 1px solid #64b0af;
-	display: grid;
-	grid-template-columns: 50px 1fr;
-	grid-template-rows: 1fr;
-	grid-template-areas: 'nav-panel main';
-}
-
-/* || dashboard side panel */
-
-.dashboard__panel {
-	grid-area: nav-panel;
-	background-color: #fbf5f2;
-	display: flex;
-	flex-direction: column;
-}
-
-/* arranges sign out button to be at the bottom of the panel */
-.dashboard__panel:before {
-	content: '';
-	flex: 1 1 auto;
-	order: 1;
-}
-
-.dashboard__panel--user {
-	display: flex;
-	gap: 20px;
-	flex-direction: column;
-	align-items: center;
-	padding: 35px 0;
-	/* will change with media query */
-	display: none;
-}
-
-.dashboard__panel--user-img {
-	height: 156px;
-	width: 156px;
-	border-radius: 50%;
-	object-fit: cover;
-}
-
-.dashboard__panel--user p {
-	margin: 0;
-}
-
-.dashboard__panel--logout {
-	order: 2;
-	align-self: center;
-	margin-bottom: 31px;
-	/* will change with media query */
-	display: none;
-}
-
-.dashboard__panel--logout:focus-visible {
-	background-color: #fff;
-	color: rgba(154, 63, 68, 1);
-	border-color: rgba(154, 63, 68, 1);
-	outline: 2px solid #007d7a;
-	outline-offset: 2px;
-	z-index: 50;
-}
-
-.dashboard__nav {
-	display: flex;
-	flex-direction: column;
-}
+/* || dashboard panel */
 
 .dashboard__nav--button {
 	background-color: #fbf5f2;
@@ -132,6 +146,15 @@ body {
 	font-weight: 400;
 }
 
+.dashboard__nav--button:focus {
+	outline: none;
+}
+
+.dashboard__nav--button:focus-visible {
+	outline: 2px solid #007d7a;
+	z-index: 100;
+}
+
 /* hover button styles */
 .dashboard__nav--button:hover:not(.active),
 .dashboard__nav--button:focus:not(.active) {
@@ -141,15 +164,6 @@ body {
 
 .dashboard__nav--button.active:hover {
 	color: #233235;
-}
-
-.dashboard__nav--button:focus {
-	outline: none;
-}
-
-.dashboard__nav--button:focus-visible {
-	outline: 2px solid #007d7a;
-	z-index: 100;
 }
 
 /* active button styles */
@@ -171,15 +185,6 @@ body {
 /* active arrow */
 .dashboard__nav--button.active:after {
 	content: '';
-	position: absolute;
-	right: 0;
-	border-width: 14px;
-	border-style: solid;
-	border-right-color: #fff;
-	border-bottom-color: transparent;
-	border-left-color: transparent;
-	border-top-color: transparent;
-	z-index: 100;
 	/* will change with media query */
 	display: none;
 }
@@ -198,37 +203,21 @@ body {
 	display: none;
 }
 
-/* dashboard header div */
-
-.dashboard__header {
-	grid-area: header;
-	background-color: #bfdede;
-	display: flex;
-	align-items: center;
-	border-left: 6px solid rgba(0, 125, 122, 1);
+.dashboard__panel--logout {
+	/* will change with media query */
 	display: none;
 }
 
-.dashboard__header--text {
-	margin: 0 0 0 20px;
-}
-
-/* dashboard content div */
-
-.dashboard__content {
-	grid-area: main;
+.dashboard__panel--logout:focus-visible {
 	background-color: #fff;
-	overflow-y: auto;
+	color: rgba(154, 63, 68, 1);
+	border-color: rgba(154, 63, 68, 1);
+	outline: 2px solid #007d7a;
+	outline-offset: 2px;
+	z-index: 50;
 }
 
-/* tabcontent */
-
-.tabcontent,
-#sell {
-	padding: 23px 15px;
-}
-
-/* || media queiries */
+/* ||| media queiries */
 
 @media (min-width: 1024px) {
 	.dashboard {
@@ -241,6 +230,10 @@ body {
 
 	.dashboard__panel--user {
 		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		padding: 35px 0;
 	}
 
 	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
@@ -251,14 +244,29 @@ body {
 	/* active arrow */
 	.dashboard__nav--button.active:after {
 		display: block;
+		position: absolute;
+		right: 0;
+		border-width: 14px;
+		border-style: solid;
+		border-right-color: #fff;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		border-top-color: transparent;
+		z-index: 100;
 	}
 
 	.dashboard__panel--logout {
 		display: block;
+		order: 2;
+		align-self: center;
+		margin-bottom: 31px;
 	}
 
 	.dashboard__header {
 		display: flex;
+		background-color: #bfdede;
+		align-items: center;
+		border-left: 6px solid rgba(0, 125, 122, 1);
 	}
 
 	.tabcontent,
