@@ -166,6 +166,14 @@ body {
 	color: #233235;
 }
 
+.tabcontent {
+	display: none;
+}
+
+.tabcontent--active {
+	display: block;
+}
+
 /* active button styles */
 .dashboard__nav--button.active {
 	background-color: #bfdede;
@@ -267,10 +275,5 @@ body {
 		background-color: #bfdede;
 		align-items: center;
 		border-left: 6px solid rgba(0, 125, 122, 1);
-	}
-
-	.tabcontent,
-	#sell {
-		padding: 23px 73px;
 	}
 }

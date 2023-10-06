@@ -30,10 +30,7 @@
 						</div>
 
 						<nav class="dashboard__nav">
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'shop')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="1">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -43,10 +40,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Shop</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'account')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="2">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -56,10 +50,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Account Details</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'payment')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="3">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -71,10 +62,7 @@
 									>Saved Payment Method</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'delivery')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="4">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -86,10 +74,7 @@
 									>Delivery &amp; Pickup Preferences</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'orders')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="5">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -115,11 +100,15 @@
 
 					<!-- dashboard content -->
 					<div class="dashboard__content">
-						<div id="shop" class="tabcontent">Shop</div>
-						<div id="account" class="tabcontent">Account</div>
-						<div id="payment" class="tabcontent">Payment Methods</div>
-						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
-						<div id="orders" class="tabcontent">Order History</div>
+						<div id="shop" class="tabcontent" data-tab="1">Shop</div>
+						<div id="account" class="tabcontent" data-tab="2">Account</div>
+						<div id="payment" class="tabcontent" data-tab="3">
+							Payment Methods
+						</div>
+						<div id="delivery" class="tabcontent" data-tab="4">
+							Delivery &amp; Pickup
+						</div>
+						<div id="orders" class="tabcontent" data-tab="5">Order History</div>
 					</div>
 					<!-- end dashboard content -->
 				</div>
@@ -129,6 +118,6 @@
 			<br />
 		</div>
 		<!-- <script type="module" src="/main.js"></script> -->
-		<!-- <script src="/main.js"></script> -->
+		<script src="/main.js"></script>
 	</body>
 </html>
