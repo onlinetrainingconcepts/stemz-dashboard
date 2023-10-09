@@ -5,6 +5,7 @@ class Dashboard {
 		const domDashboard = document.getElementById(dashboard.id);
 		const nav = domDashboard.querySelector('.dashboard__nav');
 		const contentContainer = domDashboard.querySelector('.dashboard__content');
+		const header = domDashboard.querySelector('.dashboard__header--text');
 
 		domDashboard
 			.querySelectorAll(`.dashboard__nav--button`)
@@ -14,9 +15,6 @@ class Dashboard {
 					const tabNumber = button.dataset.forTab;
 					const tabToActivate = contentContainer.querySelector(
 						`.tabcontent[data-tab="${tabNumber}"]`
-					);
-					const header = contentContainer.parentElement.querySelector(
-						'.dashboard__header--text'
 					);
 					const headerText = button.querySelector(
 						'.dashboard__nav--button-text'
