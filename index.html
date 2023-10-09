@@ -16,9 +16,9 @@
 	</head>
 	<body>
 		<div id="app">
-			<!-- Buyer Dashboard -->
 			<div class="container">
-				<div class="dashboard">
+				<div class="dashboard" data-dashboard="buyer" id="buyer-dashboard">
+					<!-- dashboard panel -->
 					<div class="dashboard__panel">
 						<div class="dashboard__panel--user">
 							<img
@@ -28,11 +28,9 @@
 							/>
 							<p>Hi, Buyer Name!</p>
 						</div>
+
 						<nav class="dashboard__nav">
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'shop')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="1">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -42,10 +40,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Shop</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'account')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="2">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -55,10 +50,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Account Details</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'payment')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="3">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -70,10 +62,7 @@
 									>Saved Payment Method</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'delivery')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="4">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -85,10 +74,7 @@
 									>Delivery &amp; Pickup Preferences</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'orders')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="5">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -99,258 +85,37 @@
 								<span class="dashboard__nav--button-text">Order History</span>
 							</button>
 						</nav>
+
 						<button
 							class="dashboard__button-secondary dashboard__panel--logout"
 						>
 							log out
 						</button>
 					</div>
-					<div class="dashboard__header active">
-						<p class="dashboard__header--text">Shop</p>
+
+					<!-- dashboard header -->
+					<div class="dashboard__header">
+						<p class="dashboard__header--text"></p>
 					</div>
+
+					<!-- dashboard content -->
 					<div class="dashboard__content">
-						<div id="shop" class="tabcontent">
-							<div class="dashboard-link__container">
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">
-										Priority Advance Order
-									</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Request New PAO by Ingredient
-									</a>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Request by Color Palette</a
-									>
-								</div>
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">
-										Live Field Inventory
-									</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Shop LFI Now for Receiving</a
-									>
-								</div>
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">
-										Weekly Standing Order
-									</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Manage your Weekly Standing Order
-									</a>
-								</div>
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">Pending Orders</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Review All Pending Orders</a
-									>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Add On to Existing Order</a
-									>
-								</div>
-							</div>
+						<div id="shop" class="tabcontent" data-tab="1">Shop</div>
+						<div id="account" class="tabcontent" data-tab="2">Account</div>
+						<div id="payment" class="tabcontent" data-tab="3">
+							Payment Methods
 						</div>
-						<div id="account" class="tabcontent">
-							<div class="account__container">
-								<div class="account__form">
-									<form action="POST">
-										<div class="profile-pic">
-											<input type="file" />
-											<div class="profile-pic__img">
-												<img
-													src="https://writestylesonline.com/wp-content/uploads/2018/11/Three-Statistics-That-Will-Make-You-Rethink-Your-Professional-Profile-Picture-1024x1024.jpg"
-													alt=""
-												/>
-											</div>
-											<div class="profile-pic__text">
-												<i class="fas fa-camera"></i>
-												<span>Click to change photo</span>
-											</div>
-										</div>
-										<!-- Business Name -->
-										<div class="account__label-input">
-											<label for="account__business-name">Business Name</label>
-											<input
-												type="text"
-												id="account__business-name"
-												placeholder="Business Name"
-											/>
-										</div>
-										<!-- Contact Name -->
-										<div class="account__label-input">
-											<label for="account__contact-name">Contact Name</label>
-											<input
-												type="text"
-												id="account__contact-name"
-												placeholder="Contact Name"
-											/>
-										</div>
-										<!-- Email -->
-										<div class="account__label-input">
-											<label for="account__email">Email</label>
-											<input
-												type="email"
-												id="account__email"
-												placeholder="email@businessname.com"
-											/>
-										</div>
-										<!-- Physical Address -->
-										<div class="account__label-input">
-											<label for="account__physical-address"
-												>Physical Address</label
-											>
-											<input
-												type="text"
-												id="account__physical-address"
-												placeholder="Current Physical Address, 28801, NC"
-											/>
-										</div>
-										<!-- Mailing Address -->
-										<div class="account__label-input">
-											<label for="account__mailing-address"
-												>Mailing Address (if different)</label
-											>
-											<input
-												type="text"
-												id="account__mailing-address"
-												placeholder="Current Physical Address, 28801, NC"
-											/>
-										</div>
-										<!-- Phone -->
-										<div class="account__label-input">
-											<label for="account__phone">Phone</label>
-											<input
-												type="tel"
-												id="account__phone"
-												placeholder="(828) 456-0123"
-											/>
-										</div>
-										<!-- Cell Phone -->
-										<div class="account__label-input">
-											<label for="account__cell-phone">Cell Phone</label>
-											<input
-												type="tel"
-												id="account__cell-phone"
-												placeholder="(828) 456-0123"
-											/>
-										</div>
-										<!-- Website -->
-										<div class="account__label-input">
-											<label for="account__website">Website</label>
-											<input
-												type="text"
-												id="account__website"
-												placeholder="https://www.website.com"
-											/>
-										</div>
-										<button type="submit" class="dashboard__button-primary">
-											Submit
-										</button>
-									</form>
-								</div>
-							</div>
+						<div id="delivery" class="tabcontent" data-tab="4">
+							Delivery &amp; Pickup
 						</div>
-						<div id="payment" class="tabcontent">Payment Methods</div>
-						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
-						<div id="orders" class="tabcontent">
-							<div class="order-history">
-								<table class="order-history__table">
-									<thead>
-										<tr>
-											<th>Order#</th>
-											<th>Order Placed</th>
-											<th>Order Total</th>
-											<th></th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>12345678</td>
-											<td>July 18, 2023</td>
-											<td>$259.00</td>
-											<td>
-												<button
-													id="orderDetails"
-													name="orderDetails"
-													class="orderDetails"
-													value="'.$orderID.'"
-												>
-													Order Details
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>12345678</td>
-											<td>July 18, 2023</td>
-											<td>$259.00</td>
-											<td>
-												<button
-													id="orderDetails"
-													name="orderDetails"
-													class="orderDetails"
-													value="'.$orderID.'"
-												>
-													Order Details
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>12345678</td>
-											<td>July 18, 2023</td>
-											<td>$259.00</td>
-											<td>
-												<button
-													id="orderDetails"
-													name="orderDetails"
-													class="orderDetails"
-													value="'.$orderID.'"
-												>
-													Order Details
-												</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
+						<div id="orders" class="tabcontent" data-tab="5">Order History</div>
 					</div>
+					<!-- end dashboard content -->
 				</div>
-			</div>
+				<!-- end dashboard -->
 
-			<br />
-			<!-- Farmer Dashboard -->
-			<div class="container">
-				<div class="dashboard">
+				<div class="dashboard" data-dashboard="farmer" id="farmer-dashboard">
+					<!-- dashboard panel -->
 					<div class="dashboard__panel">
 						<div class="dashboard__panel--user">
 							<img
@@ -360,11 +125,9 @@
 							/>
 							<p>Hi, Farmer Name!</p>
 						</div>
+
 						<nav class="dashboard__nav">
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'shop')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="1">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -374,25 +137,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Sell</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'account')"
-							>
-								<img
-									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-									height="20"
-									width="20"
-									alt=""
-									class="dashboard__nav--icon"
-								/>
-								<span class="dashboard__nav--button-text"
-									>Product Drop Details</span
-								>
-							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'payment')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="2">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -402,10 +147,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Account Details</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'delivery')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="3">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -416,107 +158,32 @@
 								<span class="dashboard__nav--button-text">Resource Center</span>
 							</button>
 						</nav>
+
 						<button
 							class="dashboard__button-secondary dashboard__panel--logout"
 						>
 							log out
 						</button>
 					</div>
-					<div class="dashboard__header active">
-						<p class="dashboard__header--text">Sell</p>
+
+					<!-- dashboard header -->
+					<div class="dashboard__header">
+						<p class="dashboard__header--text"></p>
 					</div>
+
+					<!-- dashboard content -->
 					<div class="dashboard__content">
-						<div id="sell" class="">
-							<div class="dashboard-link__container">
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">
-										Current Sales Cycle
-									</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Manage Current Sales Cycle <br />
-										(LFI & CURRENT PAOS)
-									</a>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Cut List</a
-									>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Purchase Order</a
-									>
-								</div>
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">Looking Ahead</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Claim Priority Advance Order</a
-									>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>My Future Priority Advance Orders</a
-									>
-								</div>
-								<div class="dashboard-link__group">
-									<h4 class="dashboard-link__group-label">History</h4>
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Past Orders
-									</a>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Sales Data
-									</a>
-
-									<a href="#" class="dashboard-link__group-btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Feedback
-									</a>
-								</div>
-							</div>
+						<div id="shop" class="tabcontent" data-tab="1">Sell</div>
+						<div id="account" class="tabcontent" data-tab="2">Account</div>
+						<div id="payment" class="tabcontent" data-tab="3">
+							Resource Center
 						</div>
-						<!-- <div id="prod-drop" class="">Product Drop Details page</div>
-						<div id="account-farmer" class="">Account Details</div>
-						<div id="resource-center" class="">Resource Center</div> -->
 					</div>
+					<!-- end dashboard content -->
 				</div>
 			</div>
+
+			<br />
 		</div>
 		<!-- <script type="module" src="/main.js"></script> -->
 		<script src="/main.js"></script>
