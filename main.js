@@ -1,55 +1,61 @@
 class Dashboard {
-	constructor(dashboard, dashboardName) {
+	constructor(dashboard, defaultTabIndex) {
 		this.dashboard = dashboard;
-		this.dashboardName = dashboardName;
-		const domDashboard = document.getElementById(dashboard.id);
-		const nav = domDashboard.querySelector('.dashboard__nav');
-		const contentContainer = domDashboard.querySelector('.dashboard__content');
-		const header = domDashboard.querySelector('.dashboard__header--text');
+		this.nav = this.dashboard.querySelector('.dashboard__nav');
+		this.navButtons = this.dashboard.querySelectorAll(
+			'.dashboard__nav--button'
+		);
+		this.header = this.dashboard.querySelector('.dashboard__header--text');
+		this.contentContainer = this.dashboard.querySelector('.dashboard__content');
+		this.defaultTabIndex = defaultTabIndex;
 
-		domDashboard
-			.querySelectorAll(`.dashboard__nav--button`)
-			.forEach((button) => {
-				button.addEventListener('click', () => {
-					// variables
-					const tabNumber = button.dataset.forTab;
-					const tabToActivate = contentContainer.querySelector(
-						`.tabcontent[data-tab="${tabNumber}"]`
-					);
-					const headerText = button.querySelector(
-						'.dashboard__nav--button-text'
-					).innerText;
+		// initiates events on load
+		document.addEventListener(
+			'DOMContentLoaded',
+			this.initiateDashboard(this.navButtons)
+		);
 
-					// removes active status on all buttons
-					nav.querySelectorAll('.dashboard__nav--button').forEach((button) => {
-						button.classList.remove('active');
-					});
+		// ensures default content shows on load
+		this.navButtons[this.defaultTabIndex].click();
+	}
 
-					// removes active status on all tabs
-					contentContainer.querySelectorAll('.tabcontent').forEach((tab) => {
-						tab.classList.remove('tabcontent--active');
-					});
+	initiateDashboard(buttons) {
+		buttons.forEach((button) => {
+			button.addEventListener('click', () => {
+				// variables
+				const tabNumber = button.dataset.forTab;
+				const tabToActivate = this.contentContainer.querySelector(
+					`.tabcontent[data-tab="${tabNumber}"]`
+				);
+				const headerText = button.querySelector(
+					'.dashboard__nav--button-text'
+				).innerText;
 
-					// adds active class to selected button
-					button.classList.add('active');
-
-					// adds active class to associated tab
-					tabToActivate.classList.add('tabcontent--active');
-
-					// adds text to header
-					header.innerText = headerText;
+				// removes active status on all buttons
+				this.navButtons.forEach((button) => {
+					button.classList.remove('active');
 				});
-			});
 
-		// clicks the first button in the nav in order to have the first tab show by default
-		document.addEventListener('DOMContentLoaded', () => {
-			domDashboard.querySelector('.dashboard__nav--button').click();
+				// removes active status on all tabs
+				this.contentContainer.querySelectorAll('.tabcontent').forEach((tab) => {
+					tab.classList.remove('tabcontent--active');
+				});
+
+				// adds active class to selected button
+				button.classList.add('active');
+
+				// adds active class to associated tab
+				tabToActivate.classList.add('tabcontent--active');
+
+				// adds text to header
+				this.header.innerText = headerText;
+			});
 		});
 	}
 }
 
-const dashboards = [];
+let dashboardArray = [];
 
-document.querySelectorAll('.dashboard').forEach((dashboard, num) => {
-	dashboards[num] = new Dashboard(dashboard, dashboard.dataset.dashboard);
+document.querySelectorAll('.dashboard').forEach((dashboard, index) => {
+	dashboardArray[index] = new Dashboard(dashboard, 0);
 });
