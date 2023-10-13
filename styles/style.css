@@ -19,19 +19,25 @@ body {
 	max-width: 1200px;
 	height: 680px;
 	border: 1px solid #64b0af;
-	display: grid;
-	grid-template-columns: 50px 1fr;
-	grid-template-rows: 1fr;
-	grid-template-areas: 'nav-panel main';
+	display: flex;
 }
 
 /* || dashboard side panel */
 
 .dashboard__panel {
-	grid-area: nav-panel;
-	background-color: #fbf5f2;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	flex-grow: 0;
+	width: 50%;
+	min-width: 50px;
+	background-color: #fbf5f2;
+	user-select: none;
+	/* max-width: 1200px; */
+}
+
+.dashboard__panel--user {
+	display: none;
 }
 
 /* || dashboard header div */
@@ -46,11 +52,6 @@ body {
 }
 
 /* ||| dashboard panel */
-
-.dashboard__panel--user {
-	/* will change with media query */
-	display: none;
-}
 
 .dashboard__panel--user-img {
 	height: 156px;
@@ -70,6 +71,13 @@ body {
 	order: 1;
 }
 
+.dashboard__panel-buttons {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 31px;
+	order: 2;
+}
+
 /* || dashboard nav */
 
 .dashboard__nav {
@@ -77,10 +85,21 @@ body {
 	flex-direction: column;
 }
 
+/* || resizer */
+
+.dashboard__panel-resizer {
+	height: 100%;
+	width: 3px;
+	position: absolute;
+	right: 0;
+	background: orange;
+	cursor: col-resize;
+}
+
 /* ||| dashboard content div */
 
 .dashboard__content {
-	grid-area: main;
+	width: 100%;
 	background-color: #fff;
 	overflow-y: auto;
 }
@@ -193,7 +212,6 @@ body {
 /* active arrow */
 .dashboard__nav--button.active:after {
 	content: '';
-	/* will change with media query */
 	display: none;
 }
 
@@ -211,8 +229,38 @@ body {
 	display: none;
 }
 
+.dashboard__panel-resize {
+	padding: 0;
+	background: #fff;
+	border: 2px solid rgba(104, 104, 104, 1);
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 100ms ease-in-out, border-color 100ms ease-in-out;
+}
+
+.dashboard__panel-resize:hover {
+	background: rgba(241, 215, 204, 1);
+	border-color: rgba(241, 215, 204, 1);
+}
+
+.dashboard__panel-resize span {
+	display: block;
+	color: rgba(104, 104, 104, 1);
+	font-size: 20px;
+	width: 20px;
+	transition: color 100ms ease-in-out;
+	transform: rotate(90deg);
+}
+
+.dashboard__panel-resize:hover span {
+	color: #000;
+}
+
 .dashboard__panel--logout {
-	/* will change with media query */
 	display: none;
 }
 
@@ -229,28 +277,28 @@ body {
 
 @media (min-width: 1024px) {
 	.dashboard {
-		grid-template-columns: 347px 1fr;
+		/* grid-template-columns: 347px 1fr;
 		grid-template-rows: 70px 1fr;
 		grid-template-areas:
 			'nav-panel header'
-			'nav-panel main';
+			'nav-panel main'; */
 	}
 
-	.dashboard__panel--user {
+	/* .dashboard__panel--user {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 20px;
 		padding: 35px 0;
-	}
+	} */
 
 	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
-	.dashboard__nav--button-text {
+	/* .dashboard__nav--button-text {
 		display: block;
-	}
+	} */
 
 	/* active arrow */
-	.dashboard__nav--button.active:after {
+	/* .dashboard__nav--button.active:after {
 		display: block;
 		position: absolute;
 		right: 0;
@@ -261,19 +309,18 @@ body {
 		border-left-color: transparent;
 		border-top-color: transparent;
 		z-index: 100;
-	}
+	} */
 
-	.dashboard__panel--logout {
+	/* .dashboard__panel--logout {
 		display: block;
-		order: 2;
 		align-self: center;
 		margin-bottom: 31px;
-	}
+	} */
 
-	.dashboard__header {
+	/* .dashboard__header {
 		display: flex;
 		background-color: #bfdede;
 		align-items: center;
 		border-left: 6px solid rgba(0, 125, 122, 1);
-	}
+	} */
 }

@@ -1,6 +1,8 @@
 class Dashboard {
 	constructor(dashboard, defaultTabIndex) {
 		this.dashboard = dashboard;
+		this.adminPanel = this.dashboard.querySelector('.dashboard__panel');
+		this.resizer = this.dashboard.querySelector('.dashboard__panel-resizer');
 		this.nav = this.dashboard.querySelector('.dashboard__nav');
 		this.navButtons = this.dashboard.querySelectorAll(
 			'.dashboard__nav--button'
@@ -17,6 +19,8 @@ class Dashboard {
 
 		// ensures default content shows on load
 		this.navButtons[this.defaultTabIndex].click();
+
+		this.resizer.addEventListener('mousedown', this.handleResize);
 	}
 
 	initiateDashboard(buttons) {
@@ -52,6 +56,26 @@ class Dashboard {
 			});
 		});
 	}
+
+	handleResize = (event) => {
+		const panelInfo = this.adminPanel.getBoundingClientRect();
+		const initialWidth = panelInfo.width;
+		let prevX = event.clientX;
+
+		this.mouseMove = (event) => {
+			const newX = prevX - event.clientX;
+			const newWidth = initialWidth - newX;
+			this.adminPanel.style.width = `${newWidth}px`;
+		};
+
+		this.mouseUp = () => {
+			window.removeEventListener('mousemove', this.mouseMove);
+			window.removeEventListener('mouseup', this.mouseUp);
+		};
+
+		window.addEventListener('mousemove', this.mouseMove);
+		window.addEventListener('mouseup', this.mouseUp);
+	};
 }
 
 let dashboardArray = [];
