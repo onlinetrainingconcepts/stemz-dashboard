@@ -20,6 +20,8 @@ body {
 	height: 680px;
 	border: 1px solid #64b0af;
 	display: flex;
+	container-type: inline-size;
+	container-name: dashboard;
 }
 
 /* || dashboard side panel */
@@ -30,7 +32,8 @@ body {
 	position: relative;
 	flex: 0 0 auto;
 	min-width: 50px;
-	max-width: 100%;
+	max-width: 347px;
+	width: 50px;
 	background-color: #fbf5f2;
 	user-select: none;
 	container-type: inline-size;
@@ -44,7 +47,6 @@ body {
 /* || dashboard header div */
 
 .dashboard__header {
-	grid-area: header;
 	display: none;
 }
 
@@ -75,6 +77,7 @@ body {
 .dashboard__panel-buttons {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding-bottom: 31px;
 	order: 2;
 }
@@ -93,7 +96,7 @@ body {
 	width: 3px;
 	position: absolute;
 	right: 0;
-	background: orange;
+	background: transparent;
 	cursor: col-resize;
 }
 
@@ -104,6 +107,8 @@ body {
 	background-color: #fff;
 	overflow-y: auto;
 	flex-shrink: 1;
+	container-type: inline-size;
+	container-name: dashboard-content;
 }
 
 /* || tabcontent */
@@ -275,42 +280,46 @@ body {
 	z-index: 50;
 }
 
-/* ||| media queiries */
+/* ||| container queiries */
 
-@container dashboard-panel (min-width: 300px) {
-	.dashboard__panel {
-		background: green;
-	}
-}
-
-@media (min-width: 1024px) {
-	.dashboard {
-		/* grid-template-columns: 347px 1fr;
-		grid-template-rows: 70px 1fr;
-		grid-template-areas:
-			'nav-panel header'
-			'nav-panel main'; */
-	}
-
+@container dashboard (min-width:1175px) {
 	.dashboard__panel {
 		width: 347px;
 	}
+}
 
-	/* .dashboard__panel--user {
+@container dashboard-panel (min-width:200px) {
+	.dashboard__nav--button-text {
+		display: block;
+		text-align: start;
+	}
+}
+
+@container dashboard-panel (min-width:300px) {
+	.dashboard__panel--user {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 20px;
-		padding: 35px 0;
-	} */
+		padding: 34px 0 46px;
+	}
 
-	/* this will introduce a bug where the header will technically be empty, because no element exists on mobile */
-	/* .dashboard__nav--button-text {
+	.dashboard__panel-buttons {
+		justify-content: center;
+		position: relative;
+	}
+
+	.dashboard__panel--logout {
 		display: block;
-	} */
+	}
+
+	.dashboard__panel-resize {
+		position: absolute;
+		right: 20px;
+	}
 
 	/* active arrow */
-	/* .dashboard__nav--button.active:after {
+	.dashboard__nav--button.active:after {
 		display: block;
 		position: absolute;
 		right: 0;
@@ -321,18 +330,21 @@ body {
 		border-left-color: transparent;
 		border-top-color: transparent;
 		z-index: 100;
-	} */
+	}
+}
 
-	/* .dashboard__panel--logout {
-		display: block;
-		align-self: center;
-		margin-bottom: 31px;
-	} */
-
-	/* .dashboard__header {
+@container dashboard-content (max-width:900px) {
+	.dashboard__header {
 		display: flex;
-		background-color: #bfdede;
 		align-items: center;
-		border-left: 6px solid rgba(0, 125, 122, 1);
-	} */
+		background-color: #bfdede;
+		height: 70px;
+		border-left: 6px solid #007d7a;
+	}
+}
+
+@media (max-width: 971px) {
+	.dashboard__header {
+		display: none;
+	}
 }
