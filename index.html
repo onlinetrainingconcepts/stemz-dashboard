@@ -5,13 +5,20 @@
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Stemz Dashboard</title>
-		<link rel="stylesheet" href="/style.css" />
-		<link rel="stylesheet" href="/shop.css" />
+		<link rel="stylesheet" href="styles/style.css" />
+		<link rel="stylesheet" href="styles/dashboard-link-page.css" />
+		<link rel="stylesheet" href="styles/account.css" />
+		<link rel="stylesheet" href="styles/order-history.css" />
+		<script
+			src="https://kit.fontawesome.com/b5e0c02cc0.js"
+			crossorigin="anonymous"
+		></script>
 	</head>
 	<body>
 		<div id="app">
 			<div class="container">
-				<div class="dashboard">
+				<div class="dashboard" data-dashboard="buyer" id="buyer-dashboard">
+					<!-- dashboard panel -->
 					<div class="dashboard__panel">
 						<div class="dashboard__panel--user">
 							<img
@@ -21,11 +28,9 @@
 							/>
 							<p>Hi, Buyer Name!</p>
 						</div>
+
 						<nav class="dashboard__nav">
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'shop')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="1">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -35,10 +40,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Shop</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'account')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="2">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -48,10 +50,7 @@
 								/>
 								<span class="dashboard__nav--button-text">Account Details</span>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'payment')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="3">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -63,10 +62,7 @@
 									>Saved Payment Method</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'delivery')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="4">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -78,10 +74,7 @@
 									>Delivery &amp; Pickup Preferences</span
 								>
 							</button>
-							<button
-								class="dashboard__nav--button"
-								onclick="openTab(event, 'orders')"
-							>
+							<button class="dashboard__nav--button" data-for-tab="5">
 								<img
 									src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
 									height="20"
@@ -92,84 +85,43 @@
 								<span class="dashboard__nav--button-text">Order History</span>
 							</button>
 						</nav>
-						<button class="dashboard__panel--logout">log out</button>
-					</div>
-					<div class="dashboard__header active">
-						<p class="dashboard__header--text">Shop</p>
-					</div>
-					<div class="dashboard__content">
-						<div id="shop" class="tabcontent">
-							<div class="shop__container">
-								<div class="shop__category">
-									<h4 class="shop__label">Priority Advance Order</h4>
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Request New PAO by Ingredient
-									</a>
 
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Request by Color Palette</a
-									>
-								</div>
-								<div class="shop__category">
-									<h4 class="shop__label">Live Field Inventory</h4>
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Shop LFI Now for Receiving</a
-									>
-								</div>
-								<div class="shop__category">
-									<h4 class="shop__label">Weekly Standing Order</h4>
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Manage your Weekly Standing Order
-									</a>
-								</div>
-								<div class="shop__category">
-									<h4 class="shop__label">Pending Orders</h4>
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Review All Pending Orders</a
-									>
-									<a href="#" class="shop__btn"
-										><img
-											src="https://static-00.iconduck.com/assets.00/image-x-generic-symbolic-icon-256x256-irvzk21b.png"
-											height="36"
-											width="36"
-											alt="icon"
-										/>Add On to Existing Order</a
-									>
-								</div>
-							</div>
+						<div class="dashboard__panel-buttons">
+							<button
+								class="dashboard__button-secondary dashboard__panel--logout"
+							>
+								log out
+							</button>
+							<button class="dashboard__panel-resize">
+								<span> &#9650; </span>
+							</button>
 						</div>
-						<div id="account" class="tabcontent">Account Details</div>
-						<div id="payment" class="tabcontent">Payment Methods</div>
-						<div id="delivery" class="tabcontent">Delivery &amp; Pickup</div>
-						<div id="orders" class="tabcontent">Order History</div>
+						<div class="dashboard__panel-resizer"></div>
 					</div>
+
+					<!-- dashboard content -->
+					<div class="dashboard__content">
+						<!-- dashboard header -->
+						<div class="dashboard__header">
+							<p class="dashboard__header--text"></p>
+						</div>
+
+						<div id="shop" class="tabcontent" data-tab="1">Shop</div>
+						<div id="account" class="tabcontent" data-tab="2">Account</div>
+						<div id="payment" class="tabcontent" data-tab="3">
+							Payment Methods
+						</div>
+						<div id="delivery" class="tabcontent" data-tab="4">
+							Delivery &amp; Pickup
+						</div>
+						<div id="orders" class="tabcontent" data-tab="5">Order History</div>
+					</div>
+					<!-- end dashboard content -->
 				</div>
+				<!-- end dashboard -->
 			</div>
+
+			<br />
 		</div>
 		<!-- <script type="module" src="/main.js"></script> -->
 		<script src="/main.js"></script>

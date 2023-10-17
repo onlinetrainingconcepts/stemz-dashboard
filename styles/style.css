@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+body {
+	background-color: #efe9e8;
+	font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+/* ||| initial positioning */
+
+/* || main dashboard */
+
+.dashboard {
+	width: 100%;
+	max-width: 1200px;
+	height: 680px;
+	border: 1px solid #64b0af;
+	display: flex;
+	container-type: inline-size;
+	container-name: dashboard;
+}
+
+/* || dashboard side panel */
+
+.dashboard__panel {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	flex: 0 0 auto;
+	min-width: 50px;
+	max-width: 347px;
+	width: 50px;
+	background-color: #fbf5f2;
+	user-select: none;
+	container-type: inline-size;
+	container-name: dashboard-panel;
+}
+
+.dashboard__panel--user {
+	display: none;
+}
+
+/* || dashboard header div */
+
+.dashboard__header {
+	display: none;
+}
+
+.dashboard__header--text {
+	margin: 0 0 0 20px;
+}
+
+/* ||| dashboard panel */
+
+.dashboard__panel--user-img {
+	height: 156px;
+	width: 156px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.dashboard__panel--user p {
+	margin: 0;
+}
+
+/* arranges sign out button to be at the bottom of the panel */
+.dashboard__panel:before {
+	content: '';
+	flex: 1 1 auto;
+	order: 1;
+}
+
+.dashboard__panel-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 31px;
+	order: 2;
+}
+
+/* || dashboard nav */
+
+.dashboard__nav {
+	display: flex;
+	flex-direction: column;
+}
+
+/* || resizer */
+
+.dashboard__panel-resizer {
+	height: 100%;
+	width: 3px;
+	position: absolute;
+	right: 0;
+	background: transparent;
+	cursor: col-resize;
+}
+
+/* ||| dashboard content div */
+
+.dashboard__content {
+	width: 100%;
+	background-color: #fff;
+	overflow-y: auto;
+	flex-shrink: 1;
+	container-type: inline-size;
+	container-name: dashboard-content;
+}
+
+/* || tabcontent */
+
+.tabcontent,
+#sell {
+	padding: 23px 15px;
+}
+
+/* ||| buttons & interactions */
+
+/* || primary & secondary  */
+
+.dashboard__button-primary {
+	padding: 12px 30px;
+	background-color: #de5a61;
+	color: #fff;
+	border: 1px solid #de5a61;
+	border-radius: 4px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.dashboard__button-primary:hover {
+	background-color: rgba(154, 63, 68, 1);
+	color: #fff;
+	border-color: rgba(154, 63, 68, 1);
+}
+
+.dashboard__button-secondary {
+	padding: 12px 30px;
+	background-color: #fff;
+	color: #de5a61;
+	border: 1px solid #de5a61;
+	border-radius: 4px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.dashboard__button-secondary:hover {
+	background-color: #de5a61;
+	color: #fff;
+	border-color: #de5a61;
+}
+
+/* || dashboard panel */
+
+.dashboard__nav--button {
+	background-color: #fbf5f2;
+	color: #233235;
+	height: 46px;
+	border: none;
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	padding-left: 19px;
+	cursor: pointer;
+	position: relative;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.dashboard__nav--button:focus {
+	outline: none;
+}
+
+.dashboard__nav--button:focus-visible {
+	outline: 2px solid #007d7a;
+	z-index: 100;
+}
+
+/* hover button styles */
+.dashboard__nav--button:hover:not(.active),
+.dashboard__nav--button:focus:not(.active) {
+	color: #233235;
+	background-color: rgba(251, 245, 242, 1);
+}
+
+.dashboard__nav--button.active:hover {
+	color: #233235;
+}
+
+.tabcontent {
+	display: none;
+}
+
+.tabcontent--active {
+	display: block;
+}
+
+/* active button styles */
+.dashboard__nav--button.active {
+	background-color: #bfdede;
+	color: #233235;
+}
+
+/* active border */
+.dashboard__nav--button.active:before {
+	content: '';
+	width: 6px;
+	height: 100%;
+	background-color: rgba(0, 125, 122, 1);
+	position: absolute;
+	left: 0;
+}
+
+/* active arrow */
+.dashboard__nav--button.active:after {
+	content: '';
+	display: none;
+}
+
+/* applies left border to nav button on hover */
+.dashboard__nav--button:hover:not(.active):after {
+	content: '';
+	width: 6px;
+	height: 100%;
+	background-color: #f1d7cc;
+	position: absolute;
+	left: 0;
+}
+
+.dashboard__nav--button-text {
+	display: none;
+}
+
+.dashboard__panel-resize {
+	padding: 0;
+	background: #fff;
+	border: 2px solid rgba(104, 104, 104, 1);
+	border-radius: 50%;
+	height: 35px;
+	width: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 100ms ease-in-out, border-color 100ms ease-in-out;
+}
+
+.dashboard__panel-resize:hover {
+	background: rgba(241, 215, 204, 1);
+	border-color: rgba(241, 215, 204, 1);
+}
+
+.dashboard__panel-resize span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgba(104, 104, 104, 1);
+	font-size: 20px;
+	width: 20px;
+	transform-origin: center;
+	transition: transform 200ms ease;
+	/* outline: 1px solid red; */
+}
+
+.dashboard__panel-resize--activate {
+	transition: width 300ms ease;
+}
+
+.dashboard__panel-resize--open {
+	transform: rotate(270deg);
+}
+.dashboard__panel-resize--closed {
+	transform: rotate(90deg);
+}
+
+.dashboard__panel-resize:hover span {
+	color: #000;
+}
+
+.dashboard__panel--logout {
+	display: none;
+}
+
+.dashboard__panel--logout:focus-visible {
+	background-color: #fff;
+	color: rgba(154, 63, 68, 1);
+	border-color: rgba(154, 63, 68, 1);
+	outline: 2px solid #007d7a;
+	outline-offset: 2px;
+	z-index: 50;
+}
+
+/* ||| container queiries */
+
+@container dashboard (min-width:1175px) {
+	.dashboard__panel {
+		width: 347px;
+	}
+}
+
+@container dashboard-panel (min-width:200px) {
+	.dashboard__nav--button-text {
+		display: block;
+		text-align: start;
+	}
+}
+
+@container dashboard-panel (min-width:300px) {
+	.dashboard__panel--user {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		padding: 34px 0 46px;
+	}
+
+	.dashboard__panel-buttons {
+		justify-content: center;
+		position: relative;
+	}
+
+	.dashboard__panel--logout {
+		display: block;
+	}
+
+	.dashboard__panel-resize {
+		position: absolute;
+		right: 20px;
+	}
+
+	/* active arrow */
+	.dashboard__nav--button.active:after {
+		display: block;
+		position: absolute;
+		right: 0;
+		border-width: 14px;
+		border-style: solid;
+		border-right-color: #fff;
+		border-bottom-color: transparent;
+		border-left-color: transparent;
+		border-top-color: transparent;
+		z-index: 100;
+	}
+}
+
+@container dashboard-content (max-width:900px) {
+	.dashboard__header {
+		display: flex;
+		align-items: center;
+		background-color: #bfdede;
+		height: 70px;
+		border-left: 6px solid #007d7a;
+	}
+}
+
+@media (max-width: 971px) {
+	.dashboard__header {
+		display: none;
+	}
+}
