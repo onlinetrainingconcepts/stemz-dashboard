@@ -1,6 +1,8 @@
 # Stemz Dashboard Documentation
 
-The custom Dashboard component allows the for creation of dashboards for different users such as buyers and farmer. Below is how to add a dashboard to a page and customize it based on specific needs.
+The custom Dashboard component allows the for creation of dashboards for different users such as buyers and farmer. The code works in conjuction with the WordPress plugin [Unlimited Elements for Elementor](https://unlimited-elements.com/). This plugin offers developers the ability to create custom dynamic components for the Elementor page builder. This way, a developer may create the necessary components for a site while utilizing the ease of use that Elementor is known for.
+
+Below is how to add a dashboard to a page using Elementor and customize it based on specific needs.
 
 ## Dashboard Basics
 
